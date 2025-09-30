@@ -37,6 +37,7 @@ public class Center : MonoBehaviour
     public static string Command_Skip="SKIP";
     public static string Command_Jump="JUMPTO";
     public static string Command_Refresh="REFRESH";
+    public static string Command_Clear="CLEAR";
     public static string Tag_checkview = "!CHECKVIEW";
     public static string Tag_notspawn = "!DONOTSPAWN";
     public static readonly char Plot指令分隔符 = '+';

@@ -59,6 +59,12 @@ public class 剧本System: MonoBehaviour
     public void 刷新()
     {
         已阅读 = 0;
+      清空文本();
+      
+    }
+
+    void 清空文本()
+    {
         foreach (var VARIABLE in 已生成文本)
         {
             Destroy(VARIABLE.gameObject);
@@ -284,6 +290,10 @@ public class 剧本System: MonoBehaviour
                     if (key.Contains(Center.Command_Refresh))
                     {   
                       刷新();
+                    }
+                    if (key.Contains(Center.Command_Clear))
+                    {   
+                        清空文本();
                     }
     //                 if (key.Contains(PlotManager.Command_sound))
     //                 {
