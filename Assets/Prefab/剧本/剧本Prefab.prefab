@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 4393470133052728979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2395962580415056724}
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -229.9613, y: 0.20916748}
-  m_SizeDelta: {x: 5023.584, y: 0}
+  m_SizeDelta: {x: 1763.0806, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4393470133052728972
 CanvasRenderer:
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -69,10 +69,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 259
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 259
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a70afa0b6699ab4fa9ffc6c31cc5376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsTesting: 0
   textComponent: {fileID: 4393470133052728973}
   "\u5B8C\u6574\u6587\u672C": 
   "\u5B57\u7B26\u5EF6\u8FDF": 0.03

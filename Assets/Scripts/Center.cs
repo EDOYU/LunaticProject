@@ -29,6 +29,7 @@ public class Center : MonoBehaviour
     public static string Command_background="CG";
     public static string Command_SpeakerSet="SPEAK";
     public static string Command_Check="CHECK";
+    public static string Command_Set="SET";
     public static string Command_Choice="ISCHOICE";
     public static string Command_Debug="DEBUG";
     public static string Command_Setspace="SETSPACE";
@@ -39,7 +40,7 @@ public class Center : MonoBehaviour
     public static string Command_Refresh="REFRESH";
     public static string Command_Clear="CLEAR";
     public static string Tag_checkview = "!CHECKVIEW";
-    public static string Tag_notspawn = "!DONOTSPAWN";
+    public static string Tag_notspawn = "!DONTSPAWN";
     public static readonly char Plot指令分隔符 = '+';
 
     #endregion

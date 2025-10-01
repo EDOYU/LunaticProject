@@ -9,6 +9,8 @@ public class PLAYERPROFILE : MonoBehaviour
         private string name;
         private int hp;
         private int yizhi;
+		private int tactics;//作战
+        int Physique;//体能
 
         public string NAME
         {
@@ -27,9 +29,29 @@ public class PLAYERPROFILE : MonoBehaviour
             get { return yizhi; }
             set { yizhi = value; }
         }
+		public int TACTICS
+		{
+ 			get { return tactics; }
+            set { tactics = value; }
+		}
+        public int PHYSIQUE
+        {
+            get { return Physique; }
+            set { Physique = value; }
+        }
     }
 
     public static Player[] player = new Player[20];
+
+    private void Awake()
+    {
+        player[0] = new Player();
+        player[0].NAME = "qiuwu";
+        player[0].HP = 6;
+        player[0].PHYSIQUE = 4;
+        player[0].TACTICS = 5;
+        player[0].YIZHI = 3;
+    }
 
     public static T 获取数据<T>( string fieldName, int index)
     {

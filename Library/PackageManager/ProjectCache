@@ -13,14 +13,14 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638943895241222743
-    m_Hash: 2868486868
+      ticks: 638944944585727336
+    m_Hash: 604799682
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: C:/PROJECT/LunaticProject/Packages
-m_EditorVersion: 2021.3.23f1c1 (b82b1f861975)
+m_EditorVersion: 2021.3.23f1 (213b516bf396)
 m_ResolvedPackages:
 - packageId: com.unity.collab-proxy@2.0.3
   testable: 0
@@ -36,7 +36,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Editor
-  type: 
+  type: asset
   description: The package gives you the ability to use Unity Version Control in
     the Unity editor. To use Unity Version Control, a subscription is required. Learn
     more about how you can get started for free by visiting plasticscm.com.
@@ -125,7 +125,6 @@ m_ResolvedPackages:
     - 2.8.2
     - 2.9.1
     - 2.9.2
-    - 2.9.3
     compatible:
     - 2.0.3
     - 2.0.4
@@ -147,7 +146,6 @@ m_ResolvedPackages:
     - 2.8.2
     - 2.9.1
     - 2.9.2
-    - 2.9.3
     verified: 2.0.7
   dependencies: []
   resolvedDependencies: []
@@ -169,12 +167,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638158826940000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.collab-proxy@2.0/manual/index.html
@@ -256,7 +254,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -288,7 +286,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: The JetBrains Rider Editor package provides an integration for using
     the JetBrains Rider IDE as a code editor for Unity. It adds support for generating
     .csproj files for code completion and auto-discovery of installations.
@@ -342,8 +340,6 @@ m_ResolvedPackages:
     - 3.0.34
     - 3.0.35
     - 3.0.36
-    - 3.0.37
-    - 3.0.38
     compatible:
     - 3.0.18
     - 3.0.20
@@ -358,9 +354,7 @@ m_ResolvedPackages:
     - 3.0.34
     - 3.0.35
     - 3.0.36
-    - 3.0.37
-    - 3.0.38
-    verified: 3.0.38
+    verified: 3.0.36
   dependencies:
   - name: com.unity.ext.nunit
     version: 1.0.6
@@ -371,12 +365,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638088746970000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ide.rider@3.0/manual/index.html
@@ -403,7 +397,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: Code editor integration for supporting Visual Studio as code editor
     for unity. Adds support for generating csproj files for intellisense purposes,
     auto discovery of installations, etc.
@@ -460,12 +454,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638059987360000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ide.visualstudio@2.0/manual/index.html
@@ -492,7 +486,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: Code editor integration for supporting Visual Studio Code as code
     editor for unity. Adds support for generating csproj files for intellisense purposes,
     auto discovery of installations, etc.
@@ -522,12 +516,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637800255360000000
   documentationUrl: 
@@ -554,7 +548,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Unity Test Framework
-  type: 
+  type: asset
   description: Test framework for running Edit mode and Play mode tests in Unity.
   status: 0
   errors: []
@@ -658,12 +652,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637804266210000000
   documentationUrl: 
@@ -690,7 +684,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Text Rendering
-  type: 
+  type: asset
   description: 'TextMeshPro is the ultimate text solution for Unity. It''s the perfect
     replacement for Unity''s UI Text and the legacy Text Mesh.
 
@@ -851,12 +845,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637547111200000000
   documentationUrl: 
@@ -883,7 +877,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: Use Unity Timeline to create cinematic content, game-play sequences,
     audio sequences, and complex particle effects.
   status: 0
@@ -1004,18 +998,18 @@ m_ResolvedPackages:
     - 1.8.9
     verified: 1.6.5
   dependencies:
+  - name: com.unity.modules.audio
+    version: 1.0.0
   - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
-  - name: com.unity.modules.audio
-    version: 1.0.0
   - name: com.unity.modules.particlesystem
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.modules.director
-    version: 1.0.0
   - name: com.unity.modules.audio
+    version: 1.0.0
+  - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
@@ -1030,12 +1024,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637789039180000000
   documentationUrl: 
@@ -1096,7 +1090,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1199,7 +1193,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1248,7 +1242,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1296,7 +1290,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1345,7 +1339,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1394,7 +1388,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1443,7 +1437,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1496,7 +1490,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1553,7 +1547,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1603,7 +1597,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1652,7 +1646,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1701,7 +1695,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1750,7 +1744,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1799,7 +1793,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1848,7 +1842,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1901,7 +1895,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -1950,7 +1944,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2007,7 +2001,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2059,7 +2053,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2108,7 +2102,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2173,7 +2167,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2222,7 +2216,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2279,7 +2273,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2328,7 +2322,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2385,7 +2379,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2442,7 +2436,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2499,7 +2493,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2572,7 +2566,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2625,7 +2619,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2686,7 +2680,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2749,7 +2743,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2798,7 +2792,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2859,7 +2853,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2912,7 +2906,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -2972,7 +2966,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
@@ -3004,7 +2998,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: Libraries
-  type: 
+  type: asset
   description: Custom version of the nunit package build to work with Unity. Used
     by the Unity Test Framework.
   status: 0
@@ -3037,12 +3031,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637429759280000000
   documentationUrl: 
@@ -3069,7 +3063,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: 'The editor coroutines package allows developers to start constructs
     similar to Unity''s monobehaviour based coroutines within the editor using abitrary
     objects. '
@@ -3084,11 +3078,9 @@ m_ResolvedPackages:
     - 0.1.0-preview.1
     - 0.1.0-preview.2
     - 1.0.0
-    - 1.0.1
     compatible:
     - 1.0.0
-    - 1.0.1
-    verified: 1.0.1
+    verified: 1.0.0
   dependencies: []
   resolvedDependencies: []
   keywords:
@@ -3098,12 +3090,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637232611380000000
   documentationUrl: 
@@ -3130,7 +3122,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: "The Profile Analyzer tool supports the standard Unity Profiler. You
     can use it to analyze multiple frames and multiple data sets of the CPU data
     in the Profiler.\n\nMain features: \n\u25AA Multi-frame analysis of a single
@@ -3165,12 +3157,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638108624620000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.performance.profile-analyzer@1.2/manual/index.html
@@ -3197,7 +3189,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: Use this package to export code coverage data and reports from your
     automated tests. Additionally, the Code Coverage package offers a Coverage Recording
     feature which allows capturing coverage data on demand, for manual testing or
@@ -3238,15 +3230,13 @@ m_ResolvedPackages:
     - 1.2.4
     - 1.2.5
     - 1.2.6
-    - 1.2.7
     compatible:
     - 1.2.2
     - 1.2.3
     - 1.2.4
     - 1.2.5
     - 1.2.6
-    - 1.2.7
-    verified: 1.2.7
+    verified: 1.2.6
   dependencies:
   - name: com.unity.test-framework
     version: 1.0.16
@@ -3271,12 +3261,12 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638047147810000000
   documentationUrl: 
@@ -3303,7 +3293,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: A framework for making any serializable field a setting, complete
     with a pre-built settings interface.
   status: 0
@@ -3330,7 +3320,7 @@ m_ResolvedPackages:
   registry:
     id: main
     name: 
-    url: https://packages.unity.cn
+    url: https://packages.unity.com
     scopes: []
     isDefault: 1
     capabilities: 7

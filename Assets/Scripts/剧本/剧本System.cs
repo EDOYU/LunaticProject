@@ -14,6 +14,7 @@ using Random = UnityEngine.Random;
 
 public class 剧本System: MonoBehaviour
 {
+    public static 剧本System instance;
     public List<GameObject> 已生成文本 = new List<GameObject>();
     public List<GameObject> 选项按钮 = new List<GameObject>();
     public GameObject Content;
@@ -25,6 +26,8 @@ public class 剧本System: MonoBehaviour
     public float 间隔;
     private int 已阅读=0;
     public static float Yoffset;
+    public ScrollRect 进度条;
+    public event Action 当文本更新时;
 
     private string 储存的检定结果;
     public string[][] 已储存剧本;
@@ -51,7 +54,8 @@ public class 剧本System: MonoBehaviour
 
     public void Awake()
     {
-        已储存剧本 = 读取表格数据("Plot",Center.Languageint );
+        instance = this;
+        已储存剧本 = 读取表格数据("PR2-4-3-A-B",Center.Languageint );
         Debug.LogError("剧本测试中");
         刷新();
     }
@@ -76,6 +80,7 @@ public class 剧本System: MonoBehaviour
 [ContextMenu("下一句")]
     public void Next()
     {
+        进度条.normalizedPosition = new Vector2(0, 0);
         if (已阅读>=已储存剧本.Length)
         {
             return;
@@ -85,6 +90,7 @@ public class 剧本System: MonoBehaviour
             进行指令(当前事件);
             return;
         }
+        当文本更新时?.Invoke();
    
         进行指令(当前事件);
         生成剧本预制体();
@@ -110,8 +116,6 @@ public class 剧本System: MonoBehaviour
         {
             文本 = 储存的检定结果;
         }
-
-    
         Yoffset+= go.GetComponent<打字机>().初始化(文本);
         说话人TextObject.text = 当前说话人;
         Content.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Yoffset);
@@ -123,43 +127,55 @@ public class 剧本System: MonoBehaviour
     public string[][] 读取表格数据(string 文件名, int 语言偏移)
     {
         string filepath = Application.streamingAssetsPath + "/" + 文件名;
-
+        
         // 使用EPPlus打开临时路径的Excel文件
         using (var 包 = new ExcelPackage(new FileInfo(filepath)))
         {
-            var 工作表 = 包.Workbook.Worksheets[1];
-
-            // 获取工作表的总行数
-            int 总行数 = 工作表.Dimension.End.Row;
-
-            // 初始化结果数组，从第二行开始读取
-            string[][] 数据 = new string[总行数 - 1][];
-
-            for (int i = 2; i <= 总行数; i++) // 从第二行开始
+            int 总行数 = 0;
+            try
             {
-                数据[i - 2] = new string[3]; // 初始化每行的数据
+                ExcelWorksheet  工作表 = 包.Workbook.Worksheets[1];
+                总行数= 工作表.Dimension.End.Row;
+                
+                // 获取工作表的总行数
+           
 
-                数据[i - 2][0] = 工作表.Cells[i, 1].Text; // 事件
+                // 初始化结果数组，从第二行开始读取
+                string[][]  数据 = new string[总行数 - 1][];
 
-                // 根据语言偏移获取合并后的内容
-                string 合并内容 = 工作表.Cells[i, 2 + 语言偏移].Text;
-
-                // 找到冒号并分割
-                int 冒号位置 = 合并内容.IndexOf(':');
-                if (冒号位置 != -1)
+                for (int i = 2; i <= 总行数; i++) // 从第二行开始
                 {
-                    数据[i - 2][1] = 合并内容.Substring(0, 冒号位置).Trim(); // 说话人
-                    数据[i - 2][2] = 合并内容;
-                }
-                else
-                {
-                    数据[i - 2][1] = "";
-                    数据[i - 2][2] = 合并内容;
-                }
+                    数据[i - 2] = new string[3]; // 初始化每行的数据
 
+                    数据[i - 2][0] = 工作表.Cells[i, 1].Text; // 事件
+
+                    // 根据语言偏移获取合并后的内容
+                    string 合并内容 = 工作表.Cells[i, 2 + 语言偏移].Text;
+
+                    // 找到冒号并分割
+                    int 冒号位置 = 合并内容.IndexOf(':');
+                    if (冒号位置 != -1)
+                    {
+                        数据[i - 2][1] = 合并内容.Substring(0, 冒号位置).Trim(); // 说话人
+                        数据[i - 2][2] = 合并内容;
+                    }
+                    else
+                    {
+                        数据[i - 2][1] = "";
+                        数据[i - 2][2] = 合并内容;
+                    }
+                 
+                }
+                return 数据;
+            }
+            catch (IndexOutOfRangeException e)
+            {
+               Debug.LogError($"没有找到表格{文件名}检查Streamingassets文件夹里是否有这个表格");
             }
 
-            return 数据;
+            return null;
+
+
         }
     }
 
@@ -191,6 +207,11 @@ public class 剧本System: MonoBehaviour
                     {
                         var prams = 指令切割(key);
                         LoadImage(prams[0],SPEAKERBG);
+                    }
+                    if (key.Contains(Center.Command_Set))
+                    {
+                        var prams = 指令切割(key);
+                        变量.修改变量(prams[0],Convert.ToInt32(prams[1]));
                     }
                     if (key.Contains(Center.Command_Check))//检定
                     {
@@ -236,6 +257,8 @@ public class 剧本System: MonoBehaviour
                             GameObject go = 生成剧本预制体();
                             GameObject text=  go.GetComponent<打字机>().textComponent.gameObject;
                             text.AddComponent<Button>();
+                            text.GetComponent<Text>().color = Color.green;
+                            text.GetComponent<Text>().raycastTarget = true;
                             string 事件=当前事件;
                             text.GetComponent<Button>().onClick.AddListener(() =>
                             {
@@ -266,15 +289,46 @@ public class 剧本System: MonoBehaviour
                     {
                         var prams = 指令切割(key);
                         已储存剧本 = 读取表格数据(prams[0], Center.Languageint);
-                        已阅读 = Convert.ToInt32( prams[1]);
+                        try
+                        {
+                            已阅读 = Convert.ToInt32( prams[1])-2;
+                        }
+                        catch ( IndexOutOfRangeException e)
+                        {
+                            已阅读 = 0;
+                        }
+
+                        已阅读 = 已阅读 > 1 ? 已阅读 : 0;
+                        Debug.Log($"跳转到表格{prams[0]}");
                         Next();
                     }
                     if (key.Contains(Center.Command_If))
                     {
                         var prams = 指令切割(key);
+                        Debug.Log($"鉴定{prams[0]}值={prams[1]}");
                         if (变量.获取变量(prams[0])==Convert.ToInt32(prams[1]))
                         {
-                            已阅读=Convert.ToInt32(prams[2]);
+                            已阅读=Convert.ToInt32(prams[2])-2;
+                            Debug.Log($"跳转到{prams[2]}");
+                            try
+                            {
+                                进行指令(当前事件);
+                            }
+                            catch ( IndexOutOfRangeException e)
+                            {
+                                Debug.Log($"当前阅读章节={已阅读}");
+                                int i1 = 0;
+                                foreach (var s in 已储存剧本)
+                                {
+                                   Debug.Log($"第{i1}行的指令为{s}");
+                                   i1++;
+                                }
+                            }
+                  
+                        }
+                        else
+                        {
+                            Debug.Log($"鉴定失败{prams[0]}的值是{变量.获取变量(prams[0])}");
                         }
                     }
                     if (key.Contains(Center.Command_Skip))
@@ -295,28 +349,6 @@ public class 剧本System: MonoBehaviour
                     {   
                         清空文本();
                     }
-    //                 if (key.Contains(PlotManager.Command_sound))
-    //                 {
-    //                     var prams = 指令切割(key);
-    // //                    Debug.LogError(prams[0]);
-    //                     SE.clip = Resources.Load<AudioClip>($"Sounds/{prams[0]}");
-    //                     SE.loop = prams[1] == "1";
-    //                     SE.volume = Progress.Options.Volume_SE;
-    //                     SE.Play();
-    //                 }
-    //                 if (key.Contains(PlotManager.Command_music))
-    //                 {
-    //                     var prams =指令切割(key);
-    //                     Debug.LogError(prams[0]);
-    //                     BGM.volume = Progress.Options.Volume_BGM;
-    //                     BGM.clip = Resources.Load<AudioClip>($"Music/{prams[0]}");
-    //                     BGM.Play();
-    //                 }
-    //
-    //                 if (key.Contains(PlotManager.Command_Main))
-    //                 {
-    //                     SceneManager.LoadScene("Plot_End");
-    //                 }
                 }
       }
       public static string[] 指令切割(string command)
