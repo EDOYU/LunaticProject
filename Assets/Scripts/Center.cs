@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Center : MonoBehaviour
 {
-
-
+    
+    public static Center instance;
+    public Font[] Fonts;
+    
     public static string Language = "CN";
 
     public static int Languageint
@@ -35,6 +38,7 @@ public class Center : MonoBehaviour
     public static string Command_Setspace="SETSPACE";
     public static string Command_Next="NEXT";
     public static string Command_If="IF";
+    public static string Command_End = "END";
     public static string Command_Skip="SKIP";
     public static string Command_Jump="JUMPTO";
     public static string Command_Refresh="REFRESH";
@@ -45,4 +49,13 @@ public class Center : MonoBehaviour
 
     #endregion
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public Font GetFont()
+    {
+        return Fonts[Languageint];
+    }
 }

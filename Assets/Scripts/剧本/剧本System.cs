@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using OfficeOpenXml;
-using Unity.Collections;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -52,6 +48,12 @@ public class 剧本System: MonoBehaviour
         }
     }
 
+    public void 设置新剧本(string t)
+    {
+        刷新();
+        已储存剧本 = 读取表格数据(t, Center.Languageint);
+    }
+
     public void Awake()
     {
         instance = this;
@@ -80,7 +82,7 @@ public class 剧本System: MonoBehaviour
 [ContextMenu("下一句")]
     public void Next()
     {
-        进度条.normalizedPosition = new Vector2(0, 0);
+        进度条.normalizedPosition = new Vector2(0, -1f);
         if (已阅读>=已储存剧本.Length)
         {
             return;
@@ -335,6 +337,10 @@ public class 剧本System: MonoBehaviour
                     {
                         已阅读++;
                         Next();
+                    }
+                    if (key.Contains(Center.Command_End))
+                    {
+                       大地图系统.instance.剧情结束();
                     }
                     if (key.Contains(Center.Command_Jump))
                     {   
