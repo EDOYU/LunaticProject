@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class 任务节点 : MonoBehaviour
 {
+    public string[] 前置任务要求;
+    public int[] 前置任务进度要求;
     private void OnEnable()
     {
         GetComponent<Button>().onClick.RemoveAllListeners();
@@ -13,5 +15,24 @@ public class 任务节点 : MonoBehaviour
         {
             大地图系统.instance.开始剧情 (name.Replace("(Clone)",""));
         });
+        刷新按钮可点击状态();
     }
+
+    public void 刷新按钮可点击状态()
+    {
+        if (前置任务要求.Length!=前置任务进度要求.Length)
+        {
+            Debug.LogError("任务要求数量与任务进度要求数量不相同!");
+        }
+        for (int i = 0; i < 前置任务要求.Length; i++)
+        {
+            int i1 = i;
+            if (PLAYERPROFILE.instance.获取任务进度(前置任务要求[i1])<前置任务进度要求[i1])
+            {
+                GetComponent<Image>().enabled = false;
+                return;
+            }
+        }
+    }
+    
 }

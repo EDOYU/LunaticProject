@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
 public class PLAYERPROFILE : MonoBehaviour
 {
+    public static PLAYERPROFILE instance;
+    public Dictionary<string, int> 已完成任务=new Dictionary<string, int>();
     public struct Player
     {
         private string name;
@@ -45,6 +48,12 @@ public class PLAYERPROFILE : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+        Init();
+    }
+    
+    public void Init()
+    {
         player[0] = new Player();
         player[0].NAME = "qiuwu";
         player[0].HP = 6;
@@ -53,6 +62,10 @@ public class PLAYERPROFILE : MonoBehaviour
         player[0].YIZHI = 3;
     }
 
+    public void 保存任务进度(string 任务, int 进度)
+    {
+        已完成任务[任务] = 进度;
+    }
     public static T 获取数据<T>( string fieldName, int index)
     {
         Player[] players = player;
@@ -75,5 +88,24 @@ public class PLAYERPROFILE : MonoBehaviour
         }
 
         return (T)propertyInfo.GetValue(selectedPlayer);
+    }
+
+    public int 获取任务进度(string t)
+    {
+        int rt = 0;
+        try
+        {
+            rt = 已完成任务[t];
+        }
+        catch (IndexOutOfRangeException e)
+        {
+            Debug.LogError("此任务没有做过或者任务名输入错误"+e);
+        }
+        catch (KeyNotFoundException e)
+        {
+            Debug.LogError("此任务没有做过或者任务名输入错误"+e);
+        }
+
+        return rt;
     }
 }
