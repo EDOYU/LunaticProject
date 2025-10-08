@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class 任务节点 : MonoBehaviour
 {
+    public bool 是主线;
+    public Sprite[] 按钮节点图片;
     public string[] 前置任务要求;
     public int[] 前置任务进度要求;
     private void OnEnable()
@@ -16,6 +18,7 @@ public class 任务节点 : MonoBehaviour
             大地图系统.instance.开始剧情 (name.Replace("(Clone)",""));
         });
         刷新按钮可点击状态();
+        GetComponent<Image>().sprite = 是主线 ? 按钮节点图片[0] : 按钮节点图片[1];
     }
 
     public void 刷新按钮可点击状态()

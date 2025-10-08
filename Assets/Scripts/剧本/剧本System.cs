@@ -24,6 +24,7 @@ public class 剧本System: MonoBehaviour
     public static float Yoffset;
     public ScrollRect 进度条;
     public event Action 当文本更新时;
+    public string 测试剧本;
 
     private string 储存的检定结果;
     public string[][] 已储存剧本;
@@ -57,8 +58,11 @@ public class 剧本System: MonoBehaviour
     public void Awake()
     {
         instance = this;
-        已储存剧本 = 读取表格数据("PR2-4-3-A-B",Center.Languageint );
-        Debug.LogError("剧本测试中");
+        if (测试剧本!=null)
+        {
+            已储存剧本 = 读取表格数据(测试剧本,Center.Languageint );
+            Debug.LogError("剧本测试中");
+        }
         刷新();
     }
 
