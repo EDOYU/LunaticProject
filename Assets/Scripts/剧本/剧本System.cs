@@ -311,6 +311,10 @@ public class 剧本System: MonoBehaviour
                     if (key.Contains(Center.Command_If))
                     {
                         var prams = 指令切割(key);
+                        if (prams[0]==已阅读.ToString())
+                        {
+                            Debug.LogError("跳转到的行与当前行相同,可能造成循环");
+                        }
                         Debug.Log($"鉴定{prams[0]}值={prams[1]}");
                         if (变量.获取变量(prams[0])==Convert.ToInt32(prams[1]))
                         {
