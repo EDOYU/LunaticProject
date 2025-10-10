@@ -15,7 +15,7 @@ public class 任务节点 : MonoBehaviour
         GetComponent<Button>().onClick.RemoveAllListeners();
         GetComponent<Button>().onClick.AddListener(() =>
         {
-            大地图系统.instance.开始剧情 (name.Replace("(Clone)",""));
+            大地图System.instance.开始剧情 (name.Replace("(Clone)",""));
         });
         刷新按钮可点击状态();
         GetComponent<Image>().sprite = 是主线 ? 按钮节点图片[0] : 按钮节点图片[1];

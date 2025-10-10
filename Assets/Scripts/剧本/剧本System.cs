@@ -24,6 +24,7 @@ public class 剧本System: MonoBehaviour
     public static float Yoffset;
     public ScrollRect 进度条;
     public event Action 当文本更新时;
+    public event Action 当检定开始时,当检定结束时;
     public string 测试剧本;
 
     private string 储存的检定结果;
@@ -58,7 +59,7 @@ public class 剧本System: MonoBehaviour
     public void Awake()
     {
         instance = this;
-        if (测试剧本!=null)
+        if (测试剧本.Length>1)
         {
             已储存剧本 = 读取表格数据(测试剧本,Center.Languageint );
             Debug.LogError("剧本测试中");
@@ -204,6 +205,11 @@ public class 剧本System: MonoBehaviour
                 var face = tar.Split(Center.Plot指令分隔符);
                 foreach (var key in face)
                 {
+                    if (key.Contains(Center.Command_Modify))
+                    {
+                        var prams = 指令切割(key);
+                       PLAYERPROFILE.修改属性(Convert.ToInt32(prams[0]),prams[1],Convert.ToInt32(prams[2]));
+                    }
                     if (key.Contains(Center.Command_background))
                     {
                         var prams = 指令切割(key);
@@ -221,6 +227,7 @@ public class 剧本System: MonoBehaviour
                     }
                     if (key.Contains(Center.Command_Check))//检定
                     {
+                        当检定开始时?.Invoke();
                         var prams = 指令切割(key);
                         string 被检定属性 = prams[0];
                         int 骰子数量=Convert.ToInt32(prams[1]);
@@ -250,6 +257,7 @@ public class 剧本System: MonoBehaviour
                         }
 
                         储存的检定结果 = $"{骰子数量}D{骰子大小}={随机值}  {随机值}+ {修正值}={最终值}";
+                        当检定结束时?.Invoke();
                     }
 
                     if (key.Contains(Center.Command_Choice))
@@ -349,7 +357,7 @@ public class 剧本System: MonoBehaviour
                     if (key.Contains(Center.Command_End))
                     {
                         var prams = 指令切割(key);
-                       大地图系统.instance.剧情结束();
+                       大地图System.instance.剧情结束();
                        try
                        {
                            PLAYERPROFILE.instance.保存任务进度(prams[0], Convert.ToInt32(prams[1]));

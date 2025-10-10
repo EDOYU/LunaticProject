@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class 大地图系统 : MonoBehaviour
+public class 大地图System : MonoBehaviour
 {
-    public static 大地图系统 instance;
+    public static 大地图System instance;
     public 剧本System 剧情;
     public GameObject[] 地图;
     public GameObject 当前地图;

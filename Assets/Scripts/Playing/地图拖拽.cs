@@ -15,7 +15,7 @@ public class 地图拖拽 : MonoBehaviour, IBeginDragHandler, IDragHandler
     
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!大地图系统.是可以点击地图事件)return;
+        if (!大地图System.是可以点击地图事件)return;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             目标.parent as RectTransform,
             eventData.position,
@@ -26,7 +26,7 @@ public class 地图拖拽 : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!大地图系统.是可以点击地图事件)return;
+        if (!大地图System.是可以点击地图事件)return;
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
             目标.parent as RectTransform,
             eventData.position,
