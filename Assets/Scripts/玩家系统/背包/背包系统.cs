@@ -1,13 +1,59 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
-
-public class 背包 : MonoBehaviour
+using XLua;
+[LuaCallCSharp]     
+public class 背包系统 : MonoBehaviour
 {
+    public static 背包系统 Instance;
     public static Dictionary<string, int> 当前背包  = new Dictionary<string, int>();
     public static Dictionary<string, int> 准备使用道具 = new Dictionary<string, int>();
-    public static void 增加计数(string 道具名, int 数量 = 1)
+    public static List<道具> 道具列表 = new List<道具>();
+    [LuaCallCSharp]
+    public struct 道具
+    {
+        public string Name;//技术名词
+        public string[] Title;//各语言显示名称
+        public string[] Info;//各语言介绍
+        public int Time;//回合数
+        public string[] Check;//可使用阶段
+    }
+    private LuaEnv luaEnv;
+    private void Awake()
+    {
+        Instance=this;
+        luaEnv=new LuaEnv();
+        luaEnv.AddLoader((ref string moduleName) =>
+        {
+            //把点号换成路径，如  Item.Item  ->  Item/Item
+            string relativePath = moduleName.Replace('.', '/');
+            string absPath = Path.Combine(Application.streamingAssetsPath,
+                relativePath + ".lua.txt");
+
+            if (File.Exists(absPath))
+                return File.ReadAllBytes(absPath);
+            return null;
+        });
+        luaEnv.DoString("require 'Item.Item'");
+        luaEnv.Global.Get<LuaFunction>("InitItemList")?.Call();
+    }
+
+   
+    [LuaCallCSharp]
+    public static void AddItem(string name, string[] title, string[] info, int time, string[] check)
+    {
+        道具 it=new 道具();
+        it.Name = name;
+        it.Title = title;
+        it.Info  = info;
+        it.Time  = time;
+        it.Check = check;
+
+        道具列表.Add(it);
+    }
+    public static void 背包添加(string 道具名, int 数量 = 1)
     {
         if (数量 <= 0) return;
 
@@ -17,7 +63,7 @@ public class 背包 : MonoBehaviour
             当前背包[道具名] = 数量;
     }
 
-    public static void 减少数值(string 道具名, int 数量 = 1)
+    public static void 背包减少(string 道具名, int 数量 = 1)
     {
         if (数量 <= 0) return;
 
@@ -30,7 +76,7 @@ public class 背包 : MonoBehaviour
                 当前背包.Remove(道具名);
         }
     }
-    public static void 背包计数全部减少()
+    public static void 背包全部减少()
     {
         List<string> keysToRemove = new List<string>();
         foreach (var kvp in 当前背包)
@@ -49,23 +95,28 @@ public class 背包 : MonoBehaviour
     {
         return 当前背包.TryGetValue(道具名, out int num) ? num : 0;
     }
-    public static bool 使用道具(string 道具名, int 数量 = 1)
+    public static bool 使用道具(string 道具名)
     {
-        if (数量 <= 0) return false;
+       int 回合数 = Get道具ByName(道具名).Time;
+       Debug.Log($"{道具名}的回合数是{回合数},name是{ Get道具ByName(道具名).Name}");
         int cur = 获取数量(道具名);
-        if (cur < 数量)
+        if (cur < 1)
         {
             Debug.LogWarning($"背包中 [{道具名}] 数量不足，无法消耗！");
             return false;
         }
-        减少数值(道具名, 数量);
+        背包减少(道具名, 1);
         // 时间戳
         string timeSuffix = DateTime.Now.ToString("yyyyMMddHHmmssfff");
         string keyWithTime = $"{道具名}_{timeSuffix}";
         
-        准备使用道具[keyWithTime] = 数量;
+        准备使用道具[keyWithTime] = 回合数;
 
         return true;
+    }
+    public static 道具 Get道具ByName(string targetName)
+    {
+        return 道具列表.FirstOrDefault(p => p.Name == targetName);
     }
     
     public static void 道具倒数(string t)
@@ -94,24 +145,24 @@ public class 背包 : MonoBehaviour
         }
         return cnt;
     }
-    [ContextMenu("TEST_添加10药水")]
+    [ContextMenu("TEST_添加10测试道具")]
     void TEST_ADD()
     {
-        增加计数("药水", 10);
-        Debug.Log($"药水数量 = {获取数量("药水")}");
+        背包添加("Test", 10);
+        Debug.Log($"Test数量 = {获取数量("Test")}");
     }
 
-    [ContextMenu("TEST_使用3药水")]
+    [ContextMenu("TEST_使用")]
     void TEST_USE()
     {
-        使用道具("药水", 3);
+        使用道具("Test");
         Debug.Log("准备使用道具表：" + DictionaryToString(准备使用道具));
     }
 
-    [ContextMenu("TEST_药水倒数一次")]
+    [ContextMenu("TEST_倒数一次")]
     void TEST_COUNTDOWN()
     {
-        道具倒数("药水");
+        道具倒数("Test");
         Debug.Log("倒数后表：" + DictionaryToString(准备使用道具));
     }
     
