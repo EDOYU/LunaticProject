@@ -22,24 +22,16 @@ function InitItemList()
 		{"用于初期破门任务，也可以留到后面的检定环节使用——将会降低检定难度（-3）。","TestingItem"},--效果.中/英 string[]
 		1,--持续?次检定 int 
 		{"PR1PoMen","Any"})--可使用的场合 string[]
-end
-
-
-function InitItemList()
 	Backpack.AddItem("MEDIC1",--技术名称
 		{"专速达","Testing"},--名
 		{"立即补充40%耐力。。","TestingItem"},--效果
 		0,--持续?次检定
 		{"Any"})--可使用的场合
-end
-function InitItemList()
 	Backpack.AddItem("CHARGE",--技术名称
 		{"专速达","Testing"},--名
 		{"立即补充40%生命值。","TestingItem"},--效果
 		0,--持续?次检定
 		{"Any"})--可使用的场合
-end
-function InitItemList()
 	Backpack.AddItem("S-GRENADE",--技术名称
 		{"烟雾干扰弹","Testing"},--名
 		{"在作战检定中使用，可降低作战检定难度-1，或削弱模式识别（-2），部分情况下无效。","TestingItem"},--效果
