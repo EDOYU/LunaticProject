@@ -23,7 +23,7 @@ public class Center : MonoBehaviour
                 return 2;
             }
 
-            return 0;
+            return 1;
         }
     }
 
@@ -43,7 +43,6 @@ public class Center : MonoBehaviour
     public static string Command_Jump="JUMPTO";
     public static string Command_Refresh="REFRESH";
     public static string Command_Clear="CLEAR";
-    public static string Command_Item="ITEM";
     public static string Command_Modify="MODIFY";
     public static string Tag_checkview = "!CHECKVIEW";
     public static string Tag_notspawn = "!DONTSPAWN";

@@ -28,7 +28,6 @@ public class 剧本System: MonoBehaviour
     public string 测试剧本;
 
     private string 储存的检定结果;
-    public string 当前可使用道具;
     public string[][] 已储存剧本;
     private string 当前事件 => 已储存剧本[已阅读][0];
     private string 当前说话人 => 已储存剧本[已阅读][1];
@@ -357,7 +356,6 @@ public class 剧本System: MonoBehaviour
                     }
                     if (key.Contains(Center.Command_End))
                     {
-                        PlayingSystem.可用物品类型 = "Any";
                         var prams = 指令切割(key);
                        大地图System.instance.剧情结束();
                        try
@@ -383,15 +381,6 @@ public class 剧本System: MonoBehaviour
                     if (key.Contains(Center.Command_Clear))
                     {   
                         清空文本();
-                    }
-                    if (key.Contains(Center.Command_Clear))
-                    {   
-                        清空文本();
-                    }
-                    if (key.Contains(Center.Command_Item))
-                    {   
-                        var prams = 指令切割(key);
-                        PlayingSystem.可用物品类型 = prams[0] + "Any";
                     }
                 }
       }
